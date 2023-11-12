@@ -1,0 +1,56 @@
+# dbt_project.yml
+
+# The name of your dbt project
+name: revrod
+
+# The version of dbt this project is using
+version: '2.0'
+
+# Configurations for your data warehouse
+profile: default
+#seeds-paths: ["seeds"]
+model-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+target-path: "target"
+
+# Configurations for your dbt run
+clean-targets:
+  - "target"
+
+# Configurations for your models
+#models:
+#  my_model:
+#   enabled: true
+#    materialized: table
+#    description: "My awesome model"
+#    columns:
+#      - name: id
+#        description: "Unique identifier"
+#      - name: name
+#        description: "Name of the entity"
+#    meta:
+#      schema: my_schema
+#      tags:
+#        - my_tag
+
+seeds:
+  seed__opportunity:
+    enabled: true
+    materialized: seed
+    description: 'Contains all the won opportunities'
+    package: mrr
+
+  seed__opportunity_line_item:
+    enabled: true
+    materialized: seed
+    description: 'table with the items of the opportunity, the amount is in MRR - contains the product_family - which is the type of product name that was sold'
+    package: mrr
+
+  seed_account:
+    enabled: true
+    materialized: seed
+    description: 'table of the accounts connected to the opportunity'
+    package: mrr    
+
+
