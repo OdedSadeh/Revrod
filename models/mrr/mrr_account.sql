@@ -2,5 +2,8 @@
   materialized='table'
 ) }}
 
-select * 
+select 
+ID,
+INDUSTRY,
+SALES_SEGMENT
 from  revrod_ds.seed__account

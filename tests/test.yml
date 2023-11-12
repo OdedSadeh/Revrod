@@ -1,0 +1,63 @@
+version: 2
+
+models:
+  - name: stg_total_mrr
+    columns:
+      - name: date_month
+        tests:
+          - not_null
+          - unique
+  - name: stg_product_total_mrr
+    columns: 
+      - name: date_month
+        tests:
+          - not_null
+          - unique        
+      - name: product
+        tests:
+          - not_null     
+  - name: stg_customer_total_mrr
+    columns: 
+      - name: date_month
+        tests:
+          - not_null
+          - unique        
+      - name: ID
+        tests:
+          - not_null   
+          - unique      
+  - name: stg_opportunity   
+    columns: 
+      - name: date_month
+        tests:
+          - not_null
+          - unique               
+      - name: ID
+        tests:
+          - not_null
+          - unique 
+  - name: mrr_opportunity   
+    columns: 
+      - name: start_date
+        tests:
+          - not_null
+          - greater_than: end_date              
+      - name: ID
+        tests:
+          - not_null
+          - unique          
+    - name: mrr_opportunity_line_item 
+    columns:             
+      - name: ID
+        tests:
+          - not_null
+          - unique                        
+      - name: OPPORTUNITYID
+        tests:
+          - not_null
+models:
+  - name: mrr_account
+    columns:
+      - name: ID
+        tests:
+          - not_null  
