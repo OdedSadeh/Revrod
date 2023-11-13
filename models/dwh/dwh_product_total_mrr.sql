@@ -1,7 +1,7 @@
 {{
     config(
         materialized='incremental',
-        unique_key= ['ID', 'Date_month'],
+        unique_key= ['PRODUCT', 'Date_month'],
         incremental_strategy='merge'
     )
 }}
@@ -9,14 +9,12 @@
 
 WITH source_data AS (
     SELECT date_month,
-    ID,
-    description,
+    PRODUCT,
     total_mrr
-    FROM {{ref ('stg_customer_total_mrr') }}
+    FROM {{ref ('stg_product_total_mrr') }}
 )
 
  SELECT date_month,
-    ID,
-    description,
+    PRODUCT,
     total_mrr
     from source_data

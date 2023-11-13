@@ -19,20 +19,20 @@ clean-targets:
   - "target"
 
 # Configurations for your models
-#models:
-#  my_model:
-#   enabled: true
-#    materialized: table
-#    description: "My awesome model"
-#    columns:
-#      - name: id
-#        description: "Unique identifier"
-#      - name: name
-#        description: "Name of the entity"
-#    meta:
-#      schema: my_schema
-#      tags:
-#        - my_tag
+models:
+  stg_total_mrr:
+    enabled: true
+    materialized: table
+    description: "My awesome model"
+    columns:
+      - name: date_month
+        description: "Unique identifier"
+      - name: total_mrr
+        description: "Name of the entity"
+    meta:
+      schema: stg
+      tags:
+        - my_tag
 
 seeds:
   seed__opportunity:
@@ -51,7 +51,4 @@ seeds:
     enabled: true
     materialized: seed
     description: 'table of the accounts connected to the opportunity'
-    package: mrr    
-
-
-
+    package: mrr

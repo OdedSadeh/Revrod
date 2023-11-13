@@ -1,3 +1,10 @@
+{{ 
+    config(
+  materialized='table'
+) 
+}}
+
+
 WITH date_range AS (
   SELECT
     DATE '2010-01-01' AS start_date,

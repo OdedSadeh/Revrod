@@ -46,7 +46,7 @@ models:
         tests:
           - not_null
           - unique          
-    - name: mrr_opportunity_line_item 
+  - name: mrr_opportunity_line_item 
     columns:             
       - name: ID
         tests:
@@ -55,9 +55,14 @@ models:
       - name: OPPORTUNITYID
         tests:
           - not_null
-models:
   - name: mrr_account
     columns:
       - name: ID
         tests:
           - not_null  
+  - name: testing_opp_for diff_account
+    columns:
+      - name: issue
+        tests:
+          - accepted_values:
+              values: 'OK'            
